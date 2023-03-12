@@ -1,29 +1,26 @@
-/*
- * USART_SerialCommunication_cpp.cpp
- *
- * Created: 10.03.2023 19:53:14
- * Author : lenovo
- */ 
+/*******************************/
+/*** Created by Ovidiu Sabau ***/
+/***	11th March 2023		***/
+/*******************************/
 
-#define F_CPU 16000000	
+#define F_CPU 16000000
+#include <avr/io.h>
+#include <util/delay.h>
 #include "Arduino.h"
 
-
-void setup();
-void loop();
-
-void setup()
+int main()
 {
-	pinMode(13, OUTPUT);
 	Serial.begin(9600);
-}
-
-void loop()
-{
-	digitalWrite(13, HIGH);
-	delay(500);
-	digitalWrite(13, LOW);
-	delay(500);
+	int i = 0;
 	
-	Serial.println("Hello there");
+	/* main loop */
+	while(1) 
+	{
+		i += 1;
+		Serial.print("Iteration: ");
+		Serial.println(i);
+		_delay_ms(500);
+	}
+	
+	return 0;
 }
